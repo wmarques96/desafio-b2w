@@ -63,7 +63,13 @@ public class PlanetaController {
 		return planetaRepository.save(planeta);
 	}
 	
-	
+	@GetMapping("/removerPlaneta/{id}")
+	public ResponseEntity<Planeta> removerPlaneta(@PathVariable @NumberFormat ObjectId id) {
+		
+		planetaRepository.deleteById(id);
+		
+		return ResponseEntity.ok().build();
+	}
 
 	
 	
