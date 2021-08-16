@@ -2,6 +2,8 @@
 
 API REST com um CRUD básico,persistência de dados e testes unitários.
 
+Para executar a API utilizar: java - jar starwars-api-0.0.1-SNAPSHOT
+
 url base: localhost:8080/planetas
 
 Base de Dados: MongoDB informações no application.properties.
