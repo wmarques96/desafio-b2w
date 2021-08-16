@@ -1,0 +1,14 @@
+version: "3"
+services:
+ mymongodb:
+   image: mongo:latest
+   container_name: "b2w-db"
+   ports:
+     - 27017:27017
+ springboot-mongodb:
+   image: api-starwars:1.0
+   container_name: api-starwars
+   ports:
+     - 8080:8080
+   links:
+     - b2w-db    
