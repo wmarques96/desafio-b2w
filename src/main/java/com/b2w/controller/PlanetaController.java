@@ -29,10 +29,6 @@ public class PlanetaController {
 	private PlanetaRepository planetaRepository;
 	
 	
-	RestTemplate restTemplate = new RestTemplate();
-	Planeta planetas = restTemplate.getForObject("https://swapi.dev/api/planets/", Planeta.class);
-	
-	
 	@GetMapping("/listarPlanetas")
 	public List<Planeta> listar() {
 		
@@ -41,6 +37,14 @@ public class PlanetaController {
 	}
 
 	
+	@GetMapping("/listarPlanetasApi")
+	public ResponseEntity<Planeta> listarPlanetasApi() {
+		
+		RestTemplate restTemplate = new RestTemplate();
+		ResponseEntity<Planeta> planetas = restTemplate.getForEntity("https://swapi.dev/api/planets", Planeta.class);
+		return planetas;
+
+	}
 	
 	@GetMapping("/encontrarPlaneta/{id}")
 	public ResponseEntity<Planeta> encontrarPlaneta(@PathVariable @NumberFormat ObjectId id) {
